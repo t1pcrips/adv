@@ -28,7 +28,7 @@ func SaveHash(email, hash string) error {
 		Hash:  hash,
 	}
 
-	file, err := os.OpenFile("../../internal/storage/database.json", os.O_RDWR, 0644)
+	file, err := os.OpenFile("../internal/storage/database.json", os.O_RDWR, 0644)
 	if err != nil {
 		return err
 	}
@@ -66,7 +66,7 @@ func SaveHash(email, hash string) error {
 func VerifyAndDeleteHash(hash string) (bool, error) {
 	var database []VerificationHash
 
-	file, err := os.OpenFile("../../internal/storage/database.json", os.O_RDWR, 0644)
+	file, err := os.OpenFile("../internal/storage/database.json", os.O_RDWR, 0644)
 	if err != nil {
 		return false, err
 	}

@@ -54,8 +54,8 @@ func (s *VerifyService) Send() http.HandlerFunc {
 		}
 
 		e := email.NewEmail()
-		e.From = s.Config.User.Email
-		e.To = []string{payload.Email}
+		e.From = payload.Email
+		e.To = []string{payload.Address}
 		e.Subject = "Подтверждение Email"
 		text := fmt.Sprintf("Для подтверждения Email, перейдите по ссылке: http://localhost:8080/verify/%s", hash)
 		e.Text = []byte(text)
